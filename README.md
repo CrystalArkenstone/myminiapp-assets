@@ -1,1 +1,0 @@
-# myminiapp-assets
