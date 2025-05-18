@@ -1,0 +1,2 @@
+Earendil.mp4 filter=lfs diff=lfs merge=lfs -text
+Cover[[:space:]]Earendil[[:space:]]miniapp.mp4 filter=lfs diff=lfs merge=lfs -text
