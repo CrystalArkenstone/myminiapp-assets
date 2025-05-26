@@ -20,15 +20,18 @@
   #videoContainer {
     position: relative;
     width: 100%;
-    height: calc(100vh - некоторые_отступы);
-    overflow: auto;
+    height: calc(100vh - 20px); /* чуть меньше высоты окна */
+    overflow-y: auto; /* вертикальная прокрутка при необходимости */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  /* Видео заполняет контейнер, сохраняя пропорции */
   #coverVideo {
-    width: 100%;
+    max-width: 100%;
     height: auto;
-    object-fit: contain;
+    object-fit: contain; /* или cover, если хотите заполнить */
+    display: block;
   }
 </style>
 </head>
