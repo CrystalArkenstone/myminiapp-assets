@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Видео с кнопкой включения звука</title>
+<style>
+  /* Общие стили для тела */
+  body {
+    margin: 0;
+    padding: 0;
+    background: #000; /* фон для красоты */
+    height: 100vh; /* чтобы тело занимало всю высоту окна */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #videoContainer {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - некоторые_отступы);
+    overflow: auto;
+  }
+
+  /* Видео заполняет контейнер, сохраняя пропорции */
+  #coverVideo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+</style>
+</head>
+<body>
+
+<div id="videoContainer">
+  <!-- Видео без muted -->
+  <video id="coverVideo" src="https://github.com/CrystalArkenstone/myminiapp-assets/raw/refs/heads/main/Cover%20Earendil%20miniapp.mp4" autoplay loop playsinline></video>
+  
+  <!-- Кнопка "Листать" справа по центру -->
+  <button id="nextBtn" class="lock-buckle-btn" aria-label="Перейти к следующей странице">
+    <img src="zastezhka.png" alt="Застёжка" class="buckle-image"/>
+  </button>
+  
+  <!-- Кнопка для включения звука -->
+  <button class="custom-button" aria-label="Включить звук">
+    <div class="icon"></div>
+  </button>
+</div>
+
+<script>
+const video = document.getElementById('coverVideo');
+const btn = document.querySelector('.custom-button');
+
+btn.addEventListener('click', () => {
+  // Если видео уже не muted — отключаем звук
+  if (!video.muted) {
+    video.muted = true;
+    // Можно изменить состояние кнопки или оставить так
+  } else {
+    // Включаем звук
+    video.muted = false;
+    // Пытаемся воспроизвести видео (некоторые браузеры требуют)
+    video.play().then(() => {
+        // Успешно — скрываем кнопку
+        btn.style.display = 'none';
+    }).catch((error) => {
+       console.error("Ошибка воспроизведения видео:", error);
+    });
+  }
+});
+
+// Предотвращение контекстного меню по всему документу
+document.addEventListener('contextmenu', event => event.preventDefault());
+</script>
+
+</body>
+</html>
