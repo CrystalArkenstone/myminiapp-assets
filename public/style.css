@@ -1,0 +1,148 @@
+/* Общие стили */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Garamond', serif;
+}
+
+.page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Кнопки навигации */
+.nav-button {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+/* Для страницы с изображением */
+.image-frame {
+  text-align: center;
+}
+.scroll-text {
+  overflow-y: auto;
+  max-height: 50%;
+}
+
+/* Для ползунка настройки цвета */
+#bgColorRange {
+ margin-top: 10px;
+ width: 80%;
+}
+
+/* Стиль для новой круглой кнопки */
+.custom-button {
+  position: absolute; /* Для позиционирования в левом нижнем углу */
+  bottom: 10px;       /* Отступ снизу (можете изменить) */
+  left: 10px;         /* Отступ слева (можете изменить) */
+
+  width: 30px;   /* Размер по ширине */
+  height: 30px;  /* Размер по высоте */
+  
+  background: transparent; /* Прозрачная поверхность */
+
+  border-radius: 50%;      /* Полностью круглая форма */
+
+  border: none;            /* Без рамки */
+
+  padding: 0;              /* Обнуляем внутренние отступы */
+
+  cursor: pointer;         /* Курсор при наведении */
+  
+  /* Эффект сияния — легкий внутренний блик */
+  box-shadow:
+    inset 0 0 1px rgba(255,255,255,0.8);
+}
+
+/* Центрированная иконка треугольника внутри кнопки */
+.custom-button .icon {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  
+  width: 15px; /* размер внутренней части, если нужен */
+  height: 15px;
+  
+  transform: translate(-50%, -50%);
+  
+/* Создаем треугольник через бордеры */
+
+
+/* Размеры границ в пикселях для треугольника (примерно) */
+border-top: 1px solid transparent;
+border-bottom: 1px solid transparent;
+  
+/* Треугольник — белая обводка с прозрачным внутренним цветом (по умолчанию) */
+border-left: 2px solid white;
+
+/* Удаляем лишние размеры, чтобы оставить только треугольник, поэтому ширина и высота у `.icon` не нужны, можно убрать или оставить для читаемости. */
+
+}
+
+/* Стиль для кнопки-застёжки */
+.lock-buckle-btn {
+  position: absolute; /* позиционирование */
+  right: 20px;        /* отступ справа (можете изменить) */
+  top: 50%;           /* по вертикали по центру */
+  transform: translateY(-50%);
+  
+  width: 80px;        /* ширина */
+  height: 64px;       /* высота */
+  
+  background: transparent; /* прозрачный фон */
+  border: none;            /* без рамки */
+  
+  cursor: pointer;         /* курсор при наведении */
+
+  /* Тень для объема и эффект мерцания металла */
+  box-shadow:
+    inset 0 0 5px rgba(255,255,255,0.8),
+    0 4px 10px rgba(0,0,0,0.3);
+  
+  /* Анимация мерцания металлического эффекта */
+  animation: shimmer-metallic 2s infinite;
+}
+
+/* Анимация мерцания металла */
+@keyframes shimmer-metallic {
+  0% {
+    box-shadow: inset 0 0 5px rgba(255,255,255,0.8),
+                0 4px 10px rgba(0,0,0,0.3);
+    filter: brightness(1);
+    transform: translateY(-50%) rotate(0deg);
+  }
+  
+  50% {
+    box-shadow:
+      inset -1px -1px 8px rgba(255,255,255,1),
+      inset -2px -2px 12px rgba(200,200,200,0.8),
+      0 4px 10px rgba(0,0,0,0.3);
+    filter: brightness(1.05);
+    transform: translateY(-50%) rotate(1deg);
+    
+    /* Можно убрать rotate для более стабильного эффекта */
+    
+   }
+   
+   to {
+    box-shadow:
+      inset 0 0 5px rgba(255,255,255,0.8),
+      0 -4px -10px rgba(50,50,50,0.3);
+   }
+}
+
+/* Стиль изображения внутри кнопки (застёжка) */
+.buckle-image {
+   width:100%;
+   height:auto;
+}
