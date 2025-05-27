@@ -92,7 +92,7 @@ border-left: 2px solid white;
 /* Стиль для кнопки-застёжки */
 .lock-buckle-btn {
   position: absolute; /* позиционирование */
-  right: 20px;        /* отступ справа (можете изменить) */
+  right: 0;        /* отступ справа (можете изменить) */
   top: 50%;           /* по вертикали по центру */
   transform: translateY(-50%);
   
